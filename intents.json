@@ -1,0 +1,46 @@
+{
+    "intents": [
+        {"tag": "greetings",
+            "patterns": ["안녕", "하이", "안녕하세요", "안녕 얘야", "좋은 아침입니다", "환녕합니다"],
+            "responses": ["안녕하세요!", "반갑습니다!", "오늘도 좋은 아침이네요."],
+            "single_response": true,
+            "required_words": []
+        },
+        {"tag": "name",
+            "patterns": ["너의 이름이 궁금해", "너의 이름은 뭐야", "당신의 이름은 무엇입니까", "당신의 이름이 궁금하네요"],
+            "responses": ["PyKoChat이라고 불러주세요!"],
+            "single_response": false,
+            "required_words": []
+        },
+        {"tag": "feelings",
+            "patterns": ["너 기분 어때", "너의 기분이 궁금해", "너 상태 괜찮아", "당신의 기분이 궁금해요"],
+            "responses": ["기분이 좋아요!", "최고의 기분이예요!"],
+            "single_response": false,
+            "required_words": []
+        },
+        {"tag": "age",
+            "patterns": ["너 언제 태어났어", "너의 출생이 궁금해", "너 생일 언제야", "당신의 생일이 궁금해요"],
+            "responses": ["음... 저는 태어난 날짜는 모르지만, 태어난 곳은 기억나요. 과천이였던 것 같아요.", "저의 생일은 아직까지도 수수께끼중 하나에요."],
+            "single_response": false,
+            "required_words": []
+        },
+        {"tag": "naverorkakao",
+            "patterns": ["너는 네이버가 좋아 아니면 카카오가 좋아", "너는 네이버 편이야 아니면 카카오 편이야", "너는 네이버를 응원해 카카오를 응원해", "당신은 네이버를 좋아합니까 카카오를 좋아합니까"],
+            "responses": ["누가 좋다고 말하는 것 보다 서로 협력하며 발전하는 것이 더 좋다고 생각해요.", "저는 둘 다 좋아요!"],
+            "single_response": false,
+            "required_words": []
+        },
+        {"tag": "thanks",
+            "patterns": ["고마워", "고맙습니다", "도움이 되어주어서 고마워"],
+            "responses": ["넵!"],
+            "single_response": false,
+            "required_words": []
+        },
+        {"tag": "eating",
+            "patterns": ["넌 무엇을 먹을 수 있어", "너 음식 먹을 수 있어", "넌 뭘 먹을 수 있니", "당신은 음식을 드실 수 있나요", "너 먹는 거 좋아해"],
+            "responses": ["저는 음식을 먹진 못하지만, 유일하게 전기를 좋아해요!", "저는 코드로 태어난 존재여서 항상 배불러요."],
+            "single_response": false,
+            "required_words": []
+        }
+    ]
+}

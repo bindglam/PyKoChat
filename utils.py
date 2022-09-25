@@ -1,8 +1,14 @@
-import os, requests, json
+import speech_recognition as sr
+from gtts import gTTS
+import vlc, requests, json
 
 # tts 소리 재생
 def speak(text):
-    os.system('espeak -s 160 -p 95 -a 200 -v ko "{}"'.format(text))
+    tts = gTTS(text=text, lang='ko')
+    filename='voice.mp3'
+    tts.save(filename)
+    p = vlc.MediaPlayer(filename)
+    p.play()
 
 #날씨 확인
 def get_weather(city):

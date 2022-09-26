@@ -1,11 +1,11 @@
 # 필요 라이브러리 불러오기
+from konlpy.tag import Hannanum
 import random, json, time
 import long_responses as long
 
 class ResponsesManager:
-    def __init__(self, hannanum, ktr, main):
-        self.hannanum = hannanum
-        self.KTR = ktr
+    def __init__(self, main):
+        self.hannanum = Hannanum()
         self.main = main
 
     # 유저 입력 일치도 분석
@@ -46,7 +46,10 @@ class ResponsesManager:
                     if x[1] == "N" or x[1] == "M" or x[1] == "I":
                         lox.append(x[0])
                 sentences_words.append(lox)
-            highest_prob_list[bot_response] = self.message_probability(message, sentences_words, single_response, required_words)
+            newmessage = []
+            for mesge in message:
+                newmessage.append(mesge.lower())
+            highest_prob_list[bot_response] = self.message_probability(newmessage, sentences_words, single_response, required_words)
 
         # 일반적인 인텐트(대답) 불러오기
         file_path = "intents.json"

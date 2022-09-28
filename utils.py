@@ -1,6 +1,9 @@
 from gtts import gTTS
 from hanroman import KoreanToRoman
-import vlc, requests, json
+from pygame import mixer
+import requests, json
+
+mixer.init()
 
 # tts 소리 재생
 def speak(text):
@@ -8,8 +11,8 @@ def speak(text):
         tts = gTTS(text=text, lang='ko')
         filename='voice.mp3'
         tts.save(filename)
-        p = vlc.MediaPlayer(filename)
-        p.play()
+        mixer.music.load(filename)
+        mixer.music.play()
 
 #날씨 확인
 def get_weather(city):

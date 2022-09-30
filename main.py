@@ -1,14 +1,16 @@
 # 필요 라이브러리 불러오기
 from responses import ResponsesManager
 from datetime import date, datetime
-import utils, threading
+from tkinter import *
+import utils, threading, argparse
 
 class PyKoChat(threading.Thread):
-    def __init__(self):
+    def __init__(self, args):
         threading.Thread.__init__(self)
         # 변수 초기화
         self.user_name = input("유저 이름을 입력해주세요: ")
         self.responses = ResponsesManager(self)
+        self.args = args
 
     def run(self):
         # 메인 루프
@@ -27,6 +29,12 @@ class PyKoChat(threading.Thread):
                 .format(city_name,utils.get_weather(city_name)['weather'][0]['main'],utils.get_weather(city_name)['main']['temp_min'],utils.get_weather(city_name)['main']['temp_max'],utils.get_weather(city_name)['main']['temp'],utils.get_weather(city_name)['main']['humidity']), 
                 ["오늘 날씨 알려줘", "오늘 날씨", "오늘 날씨가 궁금해", "오늘 날씨 좀 알려줘", "오늘 날씨가 궁금해요"],required_words=["날씨"])
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="PyKoChat 인수 사용법")
+    parser.add_argument("--gui", required=False, default="No", help="gui 사용여부를 묻습니다.")
+    args = parser.parse_args()
+    return args
+
 if __name__ == "__main__":
-    chatbot = PyKoChat()
+    chatbot = PyKoChat(parse_args())
     chatbot.start()
